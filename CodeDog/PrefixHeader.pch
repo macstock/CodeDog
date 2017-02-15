@@ -1,0 +1,42 @@
+//
+//  PrefixHeader.pch
+//  Day15_GameLive
+//
+//  Created by zerocpp on 16/11/18.
+//  Copyright © 2016年 zerocpp. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define kMyScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kMyScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#define MAS_SHORTHAND_GLOBALS
+#import <Masonry.h>
+
+#import <BlocksKit+UIKit.h>
+#import <UITableView+FDTemplateLayoutCell.h>
+
+#import <AFNetworking.h>
+#import <YYKit.h>
+#import <MJRefresh.h>
+#import <MBProgressHUD.h>
+#import <iCarousel.h>
+#import <SVProgressHUD.h>
+//#import <UMSocialCore/UMSocialCore.h>
+//#import <UShareUI/UShareUI.h>
+
+#import "NSString+SX.h"
+#import "NSObject+Parse.h"
+#import "UIScrollView+Refresh.h"
+#import "SXFactory.h"
+#import "CustomURLCache.h"
+#import "UIView+HUD.h"
+#import "MCFireworksButton.h"
+
+/** 缓存路径 */
+#define CYCacheFile [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"SRDownloadManager"]
+#endif /* PrefixHeader_pch */
