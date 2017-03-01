@@ -39,7 +39,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //表示静态cell
-    if (indexPath.section == 0 || indexPath.section == 2 ||(indexPath.section == 1 && indexPath.row == 1)) {
+    if (indexPath.section == 0 || indexPath.section == 2 ||(indexPath.section == 1 && indexPath.row == 1) || (indexPath.section == 1 && indexPath.row == 2)) {
         return [super tableView:tableView cellForRowAtIndexPath:indexPath];
     }else{
         SXClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClearCacheCell"];
@@ -61,9 +61,25 @@
         if (indexPath.row == 0) {
             SXClearCacheCell *cell = (SXClearCacheCell *)[tableView cellForRowAtIndexPath:indexPath];
             [cell clearCache];
-        }else{
+        }else if(indexPath.row == 1){
             CollectionTVC *CVC = [[CollectionTVC alloc]init];
             [self.navigationController pushViewController:CVC animated:YES];
+        }else{
+            [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+                //创建分享消息对象
+                UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+                //设置文本
+                messageObject.text = @"程序员区是IT阅读行业的一股清流、程序员周边服务平台。在这里，你可以发现各种新鲜热门的技术文章品。";
+                
+                //调用分享接口
+                [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+                    if (error) {
+                        NSLog(@"************Share fail with error %@*********",error);
+                    }else{
+                        NSLog(@"response data is %@",data);
+                    }
+                }];
+            }];
         }
     }
     

@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## BCUserTrack
+
+Alibaba-INC copyright
+
+
 ## BlocksKit
 
 //
@@ -227,6 +232,11 @@ THE SOFTWARE.
 
 
 
+## SGMain
+
+Alibaba-INC copyright
+
+
 ## SVProgressHUD
 
 Copyright (c) 2011-2016 Sam Vermette, Tobias Tiemerding and contributors.
@@ -257,6 +267,11 @@ including Freepik Icons. Please consult their
 respective headers for the terms of their individual licenses.
 
 
+## SecurityGuardSDK
+
+Alibaba-INC copyright
+
+
 ## UITableView+FDTemplateLayoutCell
 
 The MIT License (MIT)
@@ -283,6 +298,21 @@ SOFTWARE.
 
 
 
+## UMengAnalytics-NO-IDFA
+
+Copyright 2011 - 2015 UMeng.com. All rights reserved.
+
+
+## UMengUShare
+
+Copyright 2011 - 2016 UMeng.com. All rights reserved.
+
+
+## UTDID
+
+Alibaba-INC copyright
+
+
 ## WMPageController
 
 The MIT License (MIT)
@@ -307,6 +337,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+
+## YWFeedbackFMWK
+
+Alibaba-INC copyright
 
 ## YYKit
 

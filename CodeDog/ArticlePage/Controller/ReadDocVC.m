@@ -8,7 +8,7 @@
 
 #import "ReadDocVC.h"
 
-@interface ReadDocVC ()
+@interface ReadDocVC ()<UIWebViewDelegate>
 @property(nonatomic) UILabel *titleLb;
 @property(nonatomic) UIWebView *web;
 @end
@@ -21,12 +21,21 @@
     }
     return self;
 }
-
+#pragma mark -delegate
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [self.view showBusy];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
+    [self.view hideBusy];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [SXFactory addBackItemToVC:self];
-    
+//    [SXFactory addShareItemToVC:self];
     UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     self.navigationItem.titleView = titleView;
     _titleLb = [UILabel new];
@@ -44,7 +53,13 @@
 {
 //    NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:nil];
 //    NSURL *url = [NSURL fileURLWithPath:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.fileURL.sx_URL];
+    NSString *filePath = [self.fileURL substringFromIndex:self.fileURL.length - 17];
+    NSString *pathDocuments = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] ;
+    NSString *createPath = [NSString stringWithFormat:@"%@/SRDownloadManager/", pathDocuments];
+    NSString *filePathURL = [createPath stringByAppendingString:filePath];
+    NSURL *url = [NSURL fileURLWithPath:filePathURL];
+    NSLog(@"%@", url);
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
 - (void)didReceiveMemoryWarning {
@@ -55,7 +70,7 @@
 - (UIWebView *)web {
     if(_web == nil) {
         _web = [[UIWebView alloc] init];
-//        _web.delegate = self;
+        _web.delegate = self;
         [self.view addSubview:_web];
         [_web mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);

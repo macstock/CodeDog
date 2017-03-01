@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - BCUserTrack (5.1.0.9):
+    - UTDID
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -45,9 +47,33 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SecurityGuardSDK (5.1.94)
+  - SGMain (5.1.94):
+    - SecurityGuardSDK (= 5.1.94)
   - SVProgressHUD (2.1.2)
   - UITableView+FDTemplateLayoutCell (1.4)
+  - UMengAnalytics-NO-IDFA (4.2.5)
+  - UMengUShare/Core (6.2.2):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.2.2)
+  - UMengUShare/Social/Email (6.2.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/QQ (6.2.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/Sina (6.2.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/SMS (6.2.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.2.2):
+    - UMengUShare/Core
+  - UMengUShare/UI (6.2.2):
+    - UMengUShare/Core
+  - UTDID (1.1.0.16)
   - WMPageController (2.2.1)
+  - YWFeedbackFMWK (2.0.3.1):
+    - BCUserTrack
+    - SecurityGuardSDK
+    - SGMain
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -64,26 +90,41 @@ DEPENDENCIES:
   - MWPhotoBrowser
   - SVProgressHUD
   - UITableView+FDTemplateLayoutCell
+  - UMengAnalytics-NO-IDFA
+  - UMengUShare/Social/Email
+  - UMengUShare/Social/QQ
+  - UMengUShare/Social/Sina
+  - UMengUShare/Social/SMS
+  - UMengUShare/Social/WeChat
+  - UMengUShare/UI
   - WMPageController
+  - YWFeedbackFMWK (~> 2.0.3.1)
   - YYKit
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
-  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
-  WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  AFNetworking: 18af9c7b41a3fd4d184bc1d3a9f0f32ddb90179b
+  BCUserTrack: 684f468b8143be7a2ed10a8c449fd959b2a3a099
+  BlocksKit: 7a3a0bef9f934bb3f8126c7b765d74ab611ba190
+  CHTCollectionViewWaterfallLayout: c09269bcf778e7ec70cf8c18bba9152551dff4c0
+  DACircularProgress: 1396c1a67f67a3ed8dff13dbb88bc0ede1cfa5dc
+  iCarousel: f563534ac52b74fff99b07a17a3ea7681dbece15
+  Masonry: 51cb76bcc3fea78dad2c7f2ae97c6ec5c0f5c102
+  MBProgressHUD: 4c7073babebe5813ea18ec7584d36f07263616bc
+  MJRefresh: f4b3d796537119c83eb19b483e46bed63f47fbfc
+  MLTransition: 354010df2c08b3d84d1ce9cc77ff85872076265b
+  MWPhotoBrowser: d11f2da4d90f6239fa5a804d0a55989616dd801c
+  SDWebImage: 0cc54efd4cbf0bc8ddba69fd8df8b8873ebf1e4c
+  SecurityGuardSDK: 05f6d782189160f2b23b731eed5cb314ce584855
+  SGMain: 8a3008d8a709259d4868f78ae3265659e58e4416
+  SVProgressHUD: 3f8a5104fba5ad9490f5f5a13ec344a54830bd5a
+  UITableView+FDTemplateLayoutCell: 3003526e3146f2e5d7d8c8f691d747d42cfa52ac
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+  UMengUShare: fc0a98b8d5297632e82874318fd72a10d17da228
+  UTDID: c28855683c5ea2e77e597cb14609328f7d470d6e
+  WMPageController: ac0ab1a8ce46ebbecbb9276c3dc16249417203bf
+  YWFeedbackFMWK: dcf0f60a24099f9a35d3445ae9ef79f3633ef9f6
+  YYKit: fa4ab6a1758d7cf2d4ff6959bc0c711f5874a3d0
 
-PODFILE CHECKSUM: 64f38c7a3c4576c53e2e6aea67195a5d44ce2d76
+PODFILE CHECKSUM: 5c73abc736bf24041f5d03b6545f14e54ef54af6
 
 COCOAPODS: 1.1.1

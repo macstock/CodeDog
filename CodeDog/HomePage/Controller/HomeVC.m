@@ -66,6 +66,11 @@
 @end
 
 @implementation HomeVC
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 #pragma mark -iC delegate
 -(NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
     return _bannerList.count;

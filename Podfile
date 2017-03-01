@@ -6,6 +6,8 @@ target 'CodeDog' do
     # use_frameworks!
     
     # Pods for CodeDog
+    source 'http://repo.baichuan-ios.taobao.com/baichuanSDK/AliBCSpecs.git'
+    source 'http://repo.baichuan-ios.taobao.com/baichuanSDK/AliBCSpecsMirror.git'
     
     pod 'Masonry'
     pod 'AFNetworking'
@@ -20,4 +22,13 @@ target 'CodeDog' do
     pod 'MLTransition'
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'SVProgressHUD'
+    pod 'UMengAnalytics-NO-IDFA'
+    
+    pod 'UMengUShare/UI'
+    pod 'UMengUShare/Social/Sina'
+    pod 'UMengUShare/Social/WeChat'
+    pod 'UMengUShare/Social/QQ'
+    pod 'UMengUShare/Social/Email'
+    pod 'UMengUShare/Social/SMS'
+    pod 'YWFeedbackFMWK', '~> 2.0.3.1'
 end

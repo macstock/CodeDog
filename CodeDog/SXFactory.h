@@ -22,5 +22,7 @@ typedef enum : NSUInteger {
     
 //时间戳转换为时间
 +(NSString *)timeWithTimeIntervalString:(NSString *)timeString;
-    
+
+//分享按钮
++(void)addShareItemToVC:(UIViewController *)vc;
 @end

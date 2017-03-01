@@ -26,8 +26,12 @@
 #import <MBProgressHUD.h>
 #import <iCarousel.h>
 #import <SVProgressHUD.h>
-//#import <UMSocialCore/UMSocialCore.h>
-//#import <UShareUI/UShareUI.h>
+#import <UMMobClick/MobClick.h>
+#import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>
+//阿里百川
+#import <YWFeedbackFMWK/YWFeedbackKit.h>
+#import <YWFeedbackFMWK/YWFeedbackViewController.h>
 
 #import "NSString+SX.h"
 #import "NSObject+Parse.h"

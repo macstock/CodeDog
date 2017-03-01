@@ -14,7 +14,7 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     hud.labelText = msg;
-    [hud hide:YES afterDelay:1];
+    [hud hide:YES afterDelay:3];
 }
 
 

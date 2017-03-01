@@ -32,6 +32,7 @@
 @property(nonatomic) UILabel *stateLb;
 @property(nonatomic) UIButton *downloadBtn;
 @property(nonatomic) UIButton *viewButton;
+@property(nonatomic) UIButton *shareButton;
 //环形下载
 @property(nonatomic) ZZCircleProgress *dCircle;
 @property(nonatomic) double downloadProgress;
@@ -282,9 +283,47 @@
             make.size.equalTo(CGSizeMake(150, 35));
         }];
         [_viewButton addTarget:self action:@selector(goToView) forControlEvents:UIControlEventTouchUpInside];
+        
+        _shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.backView addSubview:_shareButton];
+        [_shareButton setBackgroundImage:[UIImage imageNamed:@"download_bg~iphone"] forState:UIControlStateNormal];
+        [_shareButton setTitle:@"分享页面" forState:UIControlStateNormal];
+        [_shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(0);
+            make.top.equalTo(self.viewButton.mas_bottom).offset(15);
+            //背景图片大小 320 * 71
+            make.size.equalTo(CGSizeMake(150, 35));
+        }];
+        [_shareButton addTarget:self action:@selector(shareView) forControlEvents:UIControlEventTouchUpInside];
     }
     return _viewButton;
 }
+-(void)shareView{
+    __weak typeof(self) weakSelf = self;
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        //真正的调用分享
+        [weakSelf shareTextToPlatformType:platformType];
+    }];
+}
+
+- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = @"程序员区是IT阅读行业的一股清流、程序员周边服务平台。在这里，你可以发现各种新鲜热门的技术文章品。";
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
 #pragma mark - 查看文档
 -(void)goToView{
     ReadDocVC *vc = [ReadDocVC new];

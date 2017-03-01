@@ -20,11 +20,12 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.view showMsg:@"正在加载"];
-    
+//    [self.view showBusy];
 }
     
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.view hideBusy];
     NSString *getPStr = @"var pElement = document.getElementsByTagName('header')[0];";
     NSString *getPStr2 = @"var pElement = document.getElementsByTagName('footer')[0];";
     NSString *deletePStr = @"pElement.remove();";
@@ -33,7 +34,7 @@
     [webView stringByEvaluatingJavaScriptFromString:deletePStr];
     [webView stringByEvaluatingJavaScriptFromString:getPStr2];
     [webView stringByEvaluatingJavaScriptFromString:deletePStr2];
-
+    
 }
     
     //纯代码初始化  隐藏底部bar

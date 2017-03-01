@@ -86,41 +86,42 @@
     }
 }
     
-//+(void)addShareItemToVC:(UIViewController *)vc{
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [btn setBackgroundImage:[UIImage imageNamed:@"share~iphone"] forState:UIControlStateNormal];
-//    btn.frame = CGRectMake(0, 0, 20, 4);
++(void)addShareItemToVC:(UIViewController *)vc{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setBackgroundImage:[UIImage imageNamed:@"share~iphone"] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0, 0, 40, 8);
 //    __weak typeof(self) weakSelf = self;
-//    [btn bk_addEventHandler:^(id sender) {
-//        //显示分享面板
-//        [UMSocialUIManager  showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-//            //真正的调用分享
-//            [weakSelf shareTextToPlatformType:platformType];
-//        }];
-//        
-//    } forControlEvents:UIControlEventTouchUpInside];
-//    
-//    //修复距离
-//    UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    fixedItem.width = 10;
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
-//    vc.navigationItem.rightBarButtonItems = @[item, fixedItem];
-//}
-//
-//- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
-//{
-//    //创建分享消息对象
-//    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-//    //设置文本
-//    messageObject.text = @"社会化组件UShare将各大社交平台接入您的应用，快速武装App。";
-//    
-//    //调用分享接口
-//    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-//        if (error) {
-//            NSLog(@"************Share fail with error %@*********",error);
-//        }else{
-//            NSLog(@"response data is %@",data);
-//        }
-//    }];
-//}
+    [btn addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    
+    //修复距离
+    UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedItem.width = 10;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    vc.navigationItem.rightBarButtonItems = @[item, fixedItem];
+}
+
+-(void)share{
+    __weak typeof(self) weakSelf = self;
+    //显示分享面板
+    [UMSocialUIManager  showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        //真正的调用分享
+        [weakSelf shareTextToPlatformType:platformType];
+    }];
+}
+- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = @"社会化组件UShare将各大社交平台接入您的应用，快速武装App。";
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
 @end
