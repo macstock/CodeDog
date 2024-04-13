@@ -15,6 +15,8 @@
 
 @property (nonatomic, copy) NSString *msg;
 
+@property (nonatomic, copy) NSString *message;
+
 @property (nonatomic, strong) NSArray<ArticleDetailDataModel *> *data;
 
 @end
